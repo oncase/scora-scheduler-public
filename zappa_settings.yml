@@ -1,0 +1,23 @@
+prod:
+  aws_region: us-east-1
+  project_name: scora-scheduler
+  runtime: python3.9
+  log_level: DEBUG
+  s3_bucket: __s3_bucket_for_deployment__
+  lambda_description: "Lambda function for scora-scheduler" 
+  lambda_handler: "main.main"
+  apigateway_enabled: false
+  keep_warm: false
+  extra_permissions:
+    - Effect: Allow
+      Action:
+        - rds:*
+        - ecs:*
+        - application-autoscaling:*
+        - resource-groups:Get*
+        - resource-groups:List*
+        - resource-groups:Search*
+        - tag:getResources
+        - tag:getTagKeys
+        - tag:getTagValues
+      Resource: "*"
