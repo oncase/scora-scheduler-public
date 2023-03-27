@@ -18,8 +18,16 @@ Atualmente são suportadas as seguintes funcionalidades:
 
 Por padrão, inicializar um serviço no ECS atribui 1 task minima e 1 desejada, e parar 0 mínima e 0 desejada. Esse comportamento pode ser customizado através do parâmetro EcsServiceCountOverride, da seguinte forma:
 
-EcsServiceCountOverride = {"\_\__service_name_\_\_": {"min_task_count": \_\__min_task_count_\_\_, "desired_task_count": \_\__desired_task_count_\_\_}}
 
+```json
+EcsServiceCountOverride = 
+{
+    "__service_name__": {
+        "min_task_count": __min_task_count__, 
+        "desired_task_count": __desired_task_count__
+    }
+}
+```
 
 O código para RDS foi retirado do [tutorial da AWS](https://aws.amazon.com/pt/blogs/database/schedule-amazon-rds-stop-and-start-using-aws-lambda/).
 
